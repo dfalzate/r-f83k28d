@@ -8,12 +8,19 @@ class App extends Component {
          content: 0
       };
 
-      this.handleClick = this.handleClick.bind(this);
+      this.handleClickAdd = this.handleClickAdd.bind(this);
+      this.handleClickSubstract = this.handleClickSubstract.bind(this);
    }
 
-   handleClick() {
+   handleClickAdd() {
       this.setState(prevState => ({
          content: prevState.content + 1
+      }));
+   }
+
+   handleClickSubstract() {
+      this.setState(prevState => ({
+         content: prevState.content - 1
       }));
    }
 
@@ -21,8 +28,11 @@ class App extends Component {
       return (
          <div>
             <span className="value">{this.state.content}</span>
-            <button id="inc" onClick={this.handleClick}>
+            <button id="inc" onClick={this.handleClickAdd}>
                Incrementa
+            </button>
+            <button id="inc" onClick={this.handleClickSubstract}>
+               Disminuir
             </button>
          </div>
       );
